@@ -109,12 +109,6 @@
 main {
     margin: 1rem;
     display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
-
-    /* display: grid;
-    align-items: center;
-    justify-items: center; */
 }
 main > div {
     flex: 2;
@@ -122,21 +116,35 @@ main > div {
     display: flex;
     justify-content: center;
 }
-main > :first-child {
-    flex: 1;
-}
+main > :first-child,
 main > :last-child {
     flex: 1;
 }
 .books {
     display: grid;
     grid-template-columns: repeat(auto-fit, min(300px, 450px));
-    grid-auto-rows: minmax(200px, 300px);
-    gap: 8px;
+    grid-auto-rows: minmax(400px, 1fr);
+    gap: 20px;
 }
 
-.books * {
-    border: 1px solid red;
+.book {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: var(--color-secondary);
+    border: 1.5rem solid transparent;
+    border-radius: 8px;
+    color: var(--color-background);
+    transition: 0.5s;
+    /* flex: 1 0 auto; */
+}
+.book:hover {
+    transform: scaleX(1.05);
+}
+.bookData {
+    
 }
 
 @media (width <= 600px) {
