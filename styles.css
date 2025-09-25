@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --color-background: #0a2463;
+    --color-front: #fdecef;
+
+    --color-main: #89023e;
+    --color-accent: #cc7178;
+    --color-secondary: #c6c8ee;
+
+    background-color: var(--color-background);
+    color: var(--color-front);
+}
+
+.dark {
+    --color-background: #0a2463;
+    --color-front: #fdecef;
+    --color-main: #89023e;
+    --color-accent: #cc7178;
+    --color-secondary: #c6c8ee;
+
+    background-color: var(--color-background);
+    color: var(--color-front);
+}
+
+.light {
+    --color-background: #fdecef;
+    --color-front: #0a2463;
+    --color-main: #89023e;
+    --color-accent: #cc7178;
+    --color-secondary: #c6c8ee;
+
+    background-color: var(--color-background);
+    color: var(--color-background);
+}
+
+.header-main {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: var(--color-main);
+}
+.top-bar {
+    display: flex;
+    flex-basis: 1000px;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    position: relative;
+}
+
+.top-bar > * {
+    display: inline-flex;
+    height: 3rem;
+    align-items: center;
+}
+.search-bar {
+    flex: 1 1 auto;
+}
+.search-bar input {
+    display: inline-flex;
+    width: 100%;
+    height: 1.5rem;
+    border: 0;
+    border-radius: 8px;
+}
+
+.mini-profile {
+    cursor: pointer;
+}
+.mini-profile .visible {
+    display: inline-flex;
+}
+
+.profile-main,
+.content-main {
+    display: flex;
+}
+
+.hidden {
+    display: none;
+}
+
+.profile-options {
+    position: absolute;
+    background-color: var(--color-main);
+    top: 50px;
+    border-radius: 8px;
+}
+
+.profile-options li {
+    list-style: none;
+    border: 10px solid transparent;
+}
+.profile-options li:hover {
+    background-color: var(--color-accent);
+}
+.overlay {
+    height: 100%;
+    width: 100%;
+    background-color: #c6c8ee;
+}
+
+@media screen and (width <= 600px) {
+    .top-bar input {
+        display: none;
+    }
+}
