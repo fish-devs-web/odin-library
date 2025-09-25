@@ -98,20 +98,56 @@
 .profile-options li:hover {
     background-color: var(--color-accent);
 }
+
 #overlay {
     height: 100%;
     width: 100%;
-    /* background-color: #c6c8ee; */
-    position: fixed;
+    position: absolute;
     z-index: 1;
 }
 
-.profile-main,
-.content-main {
+main {
+    margin: 1rem;
     display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+
+    /* display: grid;
+    align-items: center;
+    justify-items: center; */
+}
+main > div {
+    flex: 2;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+}
+main > :first-child {
+    flex: 1;
+}
+main > :last-child {
+    flex: 1;
+}
+.books {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, min(300px, 450px));
+    grid-auto-rows: minmax(200px, 300px);
+    gap: 8px;
 }
 
-@media screen and (width <= 600px) {
+.books * {
+    border: 1px solid red;
+}
+
+@media (width <= 600px) {
+    .header-main {
+        display: flex;
+        width: 100%;
+    }
+    .top-bar {
+        margin-left: 0;
+        margin-right: 0;
+    }
     .top-bar input {
         display: none;
     }
