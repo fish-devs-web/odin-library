@@ -14,6 +14,7 @@
 
     background-color: var(--color-background);
     color: var(--color-front);
+    transition: 0.5s;
 }
 
 .dark {
@@ -107,24 +108,20 @@
 }
 
 main {
-    margin: 1rem;
-    display: flex;
-}
-main > div {
-    flex: 2;
-    max-width: 1000px;
+    margin: 2rem 2rem;
     display: flex;
     justify-content: center;
 }
-main > :first-child,
-main > :last-child {
-    flex: 1;
-}
-.books {
+#book-shelf {
     display: grid;
-    grid-template-columns: repeat(auto-fit, min(300px, 450px));
-    grid-auto-rows: minmax(400px, 1fr);
     gap: 20px;
+    max-width: calc(4 * 350px + 3 * 20px);
+    min-width: 250px;
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, 350px));
+    grid-auto-rows: minmax(400px, 1fr);
+    align-items: center;
+    /* margin: 0 auto; */
 }
 
 .book {
@@ -136,15 +133,26 @@ main > :last-child {
     background-color: var(--color-secondary);
     border: 1.5rem solid transparent;
     border-radius: 8px;
-    color: var(--color-background);
+    color: black;
     transition: 0.5s;
-    /* flex: 1 0 auto; */
+    height: 100%;
 }
 .book:hover {
     transform: scaleX(1.05);
 }
-.bookData {
-    
+
+.book-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.book-info > * {
+    flex: 1;
+}
+
+.cover {
+    max-height: 440px;
 }
 
 @media (width <= 600px) {

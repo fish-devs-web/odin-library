@@ -56,32 +56,43 @@
         </div>
     </div>
     <main>
-        <div>
-            <!-- This is a placeholder -->
-        </div>
-        <div class="books">
-            <div class="book">
-                <div>
-                    <img src="https://imgs.search.brave.com/hihgNJlw8xUKOsPJ6Wuf22z4jeSphTUVf-fQjwgxNXQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/Y292ZXJicm93c2Vy/LmNvbS9pbWFnZS9p/c2FhYy1hc2ltb3Yt/Ym9va3MvODYtNi5q/cGc"
-                        alt=""
-                        height="auto"
-                        width="100%">
-                    <h3>Title: </h3>
-                    <p>The naked sun</p>
-                    <br>
-                    <h3>Author: </h3>
-                    <p>Isaac Asimov</p>
-                    <br>
-                    <h3>Review: </h3>
-                    <p> 5 stars</p>
-                </div>
-                <div class="bookData hidden"></div>
-            </div>
-        </div>
-        <div>
-            <!-- This is a placeholder -->
+        <div id="book-shelf">
         </div>
     </main>
 </body>
+<template id="book-template">
+    <div class="book">
+        <div>
+            <img src=""
+                alt="Book cover"
+                height="auto"
+                width="100%"
+                class="cover"
+                id="cover">
+        </div>
+        <div class="book-info">
+            <div>
+                <h3>Title: </h3>
+                <p class="title"></p>
+            </div>
+            <div>
+                <h3>Author: </h3>
+                <p class="author"></p>
+            </div>
+            <div>
+                <h3>Review: </h3>
+                <p class="review"></p>
+            </div>
+            <div>
+                <h3>Read: </h3>
+                <p class="read"></p>
+            </div>
+            <div>
+                <h3>Pages: </h3>
+                <p class="pages-count"></p>
+            </div>
+        </div>
+    </div>
+</template>
 
 </html>
