@@ -1,4 +1,5 @@
 const root = document.documentElement;
+const overlay = document.getElementById('overlay');
 
 const themeToggler = document.getElementById('theme-toggle')!;
 themeToggler.addEventListener('click', () => {
@@ -6,9 +7,17 @@ themeToggler.addEventListener('click', () => {
     console.log(`Doing stuff`);
 });
 
-const dropDown = document.querySelector('.mini-profile')! as HTMLElement;
+const miniProfile = document.querySelector('.visible')! as HTMLElement;
 const profNav = document.querySelector('.profile-options')!;
 
-dropDown.addEventListener('click', () => {
+miniProfile.addEventListener('click', () => {
     profNav?.classList.toggle('hidden');
+    overlay?.classList.toggle('hidden');
+});
+
+overlay?.addEventListener('click', () => {
+    overlay?.classList.toggle('hidden');
+    !profNav?.classList.toggle('hidden')
+        ? profNav.classList.toggle('hidden')
+        : profNav.classList.toggle('');
 });

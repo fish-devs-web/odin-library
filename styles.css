@@ -71,16 +71,12 @@
     border-radius: 8px;
 }
 
-.mini-profile {
+.profileContainer {
     cursor: pointer;
 }
-.mini-profile .visible {
+.profileContainer .visible {
     display: inline-flex;
-}
-
-.profile-main,
-.content-main {
-    display: flex;
+    align-items: center;
 }
 
 .hidden {
@@ -92,6 +88,7 @@
     background-color: var(--color-main);
     top: 50px;
     border-radius: 8px;
+    z-index: 10;
 }
 
 .profile-options li {
@@ -101,10 +98,17 @@
 .profile-options li:hover {
     background-color: var(--color-accent);
 }
-.overlay {
+#overlay {
     height: 100%;
     width: 100%;
-    background-color: #c6c8ee;
+    /* background-color: #c6c8ee; */
+    position: fixed;
+    z-index: 1;
+}
+
+.profile-main,
+.content-main {
+    display: flex;
 }
 
 @media screen and (width <= 600px) {
