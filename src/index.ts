@@ -25,10 +25,10 @@ overlay?.addEventListener('click', () => {
 const bookTemplate = document.getElementById(
     'book-template'
 ) as HTMLTemplateElement;
+const newBookTemplate = document.getElementById(
+    'new-book-template'
+) as HTMLTemplateElement;
 const bookshelf = document.getElementById('book-shelf') as HTMLElement;
-
-if (!bookTemplate || !bookshelf)
-    throw new Error('Missing template or container');
 
 class Book {
     id: string = '';
@@ -49,56 +49,78 @@ let books = [
         pages: 352,
         cover: 'https://imgs.search.brave.com/OQoU3s-SJ-YCL-arpmXzcBnwJpDPQcxm2Sv54wXcTBs/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/ZWFzb25zLmNvbS9p/bWFnZXMvbS80ODhh/NDllODNmMjU0N2Fi/L29yaWdpbmFsLzk3/ODAxMzU5NTcwNTlf/NTYzODkzMTMyMy5q/cGc_d2lkdGg9MjUx/JmhlaWdodD0zODkm/bW9kZT1tYXg',
     },
-    {
-        title: 'Clean Code',
-        author: 'Robert C. Martin',
-        review: 'Opinionated but influential on coding style.',
-        read: true,
-        pages: 464,
-        cover: 'https://imgs.search.brave.com/_lj4J_-wlHV4bUvg4BgSCFjJLVEd3T7oivTJspLnT-8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NDFFWUxVRGFGOEwu/anBn',
-    },
-    {
-        title: 'You Don’t Know JS Yet',
-        author: 'Kyle Simpson',
-        review: 'Deep dive into the quirks of JavaScript.',
-        read: false,
-        pages: 278,
-        cover: 'https://imgs.search.brave.com/O0tU-Cf07Lg705nVsVcdIh-TLjVlDzElTOp37_LRY-U/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMtbmEuc3NsLWlt/YWdlcy1hbWF6b24u/Y29tL2ltYWdlcy9J/LzcxTVZ6SEtqWENM/LmpwZw',
-    },
-    {
-        title: 'Design Patterns',
-        author: 'Erich Gamma et al.',
-        review: 'Seminal book introducing the GoF patterns.',
-        read: false,
-        pages: 395,
-        cover: 'https://imgs.search.brave.com/Mlo-P-UyxPY091DPkEUVuocdbFXxkypO88rznlTLMOg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cGFwZXJ0cnVlLmNv/bS9ibG9nL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDI1LzA5L3Bh/dHRlcm4tYmFzZWQt/Ym9vay1jb3Zlci1k/ZXNpZ24tc3R5bGUu/anBn',
-    },
-    {
-        title: 'Refactoring',
-        author: 'Martin Fowler',
-        review: 'Systematic approach to improving existing code.',
-        read: true,
-        pages: 448,
-        cover: 'https://imgs.search.brave.com/blof2p0ZZNZYtm7Nb5MoaNgrpx5wOVou0b6PBnLLjPA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9waWN0/dXJlcy5hYmVib29r/cy5jb20vaXNibi85/NzgwMzIxOTg0MTM1/LXVrLTMwMC5qcGc',
-    },
 ] as Book[];
 
-books.forEach((book) => {
-    let currentBook = bookTemplate.content.cloneNode(true) as DocumentFragment;
-    console.log(currentBook);
+function updateBooks() {
+    bookshelf.replaceChildren();
+    books.forEach((book) => {
+        let currentBook = bookTemplate.content.cloneNode(
+            true
+        ) as DocumentFragment;
+        console.log(currentBook);
 
-    let titleDiv = currentBook.querySelector('.title') as HTMLElement;
-    let authorDiv = currentBook.querySelector('.author') as HTMLElement;
-    let reviewDiv = currentBook.querySelector('.review') as HTMLElement;
-    let readDiv = currentBook.querySelector('.read') as HTMLElement;
-    let pagesDiv = currentBook.querySelector('.pages-count') as HTMLElement;
-    let img = currentBook.querySelector('#cover');
+        let titleDiv = currentBook.querySelector('.title') as HTMLElement;
+        let authorDiv = currentBook.querySelector('.author') as HTMLElement;
+        let reviewDiv = currentBook.querySelector('.review') as HTMLElement;
+        let readDiv = currentBook.querySelector('.read') as HTMLElement;
+        let pagesDiv = currentBook.querySelector('.pages-count') as HTMLElement;
+        let img = currentBook.querySelector('#cover');
 
-    titleDiv.textContent = book.title!;
-    authorDiv.textContent = book.author!;
-    reviewDiv.textContent = book.review!;
-    readDiv.textContent = book.read! === true ? 'Yes' : 'No';
-    pagesDiv.textContent = book.pages?.toString()!;
-    img?.setAttribute('src', book.cover!);
-    bookshelf.appendChild(currentBook);
+        titleDiv.textContent = book.title!;
+        authorDiv.textContent = book.author!;
+        reviewDiv.textContent = book.review!;
+        readDiv.textContent = book.read === true ? 'Yes' : 'No';
+        pagesDiv.textContent = book.pages?.toString()!;
+        img?.setAttribute('src', book.cover!);
+        bookshelf.appendChild(currentBook);
+    });
+    let newBookTemp = newBookTemplate.content.cloneNode(
+        true
+    ) as DocumentFragment;
+    bookshelf.appendChild(newBookTemp);
+    const newBookDiv = document.getElementById('new-book-div');
+    newBookDiv?.addEventListener('click', () => {
+        addBookDialog.showModal();
+        console.log(`showing modal`);
+    });
+}
+updateBooks();
+
+const addBookDialog = document.getElementById(
+    'add-book-dialog'
+) as HTMLDialogElement;
+
+const addBook = document.getElementById('add-book-button') as HTMLButtonElement;
+const addBookCancel = document.getElementById(
+    'cancel-add-book'
+) as HTMLButtonElement;
+
+addBook.addEventListener('click', () => {
+    console.log('Adding books');
+});
+
+addBookCancel.addEventListener('click', () => {
+    addBookDialog.close();
+});
+
+const form = document.getElementById('form-data') as HTMLFormElement;
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    console.log(`Form data`);
+
+    console.log(formData.get('read'));
+
+    const data = {
+        title: formData.get('name') as string,
+        author: formData.get('author') as string,
+
+        review: formData.get('review') as string,
+        read: formData.get('read') === 'on' ? true : false,
+        cover: formData.get('cover') as string,
+        pages: formData.get('pages') as unknown as number,
+    } as Book;
+    books.push(data);
+    addBookDialog.close();
+    updateBooks();
 });

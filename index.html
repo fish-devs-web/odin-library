@@ -56,9 +56,55 @@
         </div>
     </div>
     <main>
+
         <div id="book-shelf">
         </div>
     </main>
+    <dialog id="add-book-dialog">
+        <form id="form-data">
+            <label for="name">Name:*</label>
+            <input type="text"
+                placeholder="Around the world in eighty days"
+                name="name"
+                required
+                id="name">
+
+            <label for="author">Author:</label>
+            <input type="text"
+                placeholder="Jules Verne"
+                id="author"
+                required
+                name="author">
+
+            <label for="cover">Cover Image:</label>
+            <input type="text"
+                placeholder="URL"
+                id="cover"
+                name="cover">
+            <br>
+
+            <label for="review">Review</label>
+            <input type="text"
+                placeholder="Love it!"
+                id="review"
+                name="review">
+
+            <label for="read">Read</label>
+            <input type="checkbox"
+                id="read"
+                name="read">
+            <br>
+            <label for="pages">Pages:</label>
+            <input type="number"
+                placeholder="252"
+                name="pages"
+                id="pages">
+            <button id="add-book-button">Add</button>
+
+            <button id="cancel-add-book"
+                type="button">Cancel</button>
+        </form>
+    </dialog>
 </body>
 <template id="book-template">
     <div class="book">
@@ -71,27 +117,36 @@
                 id="cover">
         </div>
         <div class="book-info">
-            <div>
+            <div id="title">
                 <h3>Title: </h3>
                 <p class="title"></p>
             </div>
-            <div>
+            <div id="author">
                 <h3>Author: </h3>
                 <p class="author"></p>
             </div>
-            <div>
+            <div id="review">
                 <h3>Review: </h3>
                 <p class="review"></p>
             </div>
-            <div>
+            <div id="read">
                 <h3>Read: </h3>
                 <p class="read"></p>
             </div>
-            <div>
+            <div id="pages">
                 <h3>Pages: </h3>
                 <p class="pages-count"></p>
             </div>
         </div>
+    </div>
+</template>
+<template id="new-book-template">
+    <div id="new-book-div"
+        class="book">
+        <h3>Add a new book</h3>
+        <img src="./resources/plus.png"
+            height="100px"
+            alt="">
     </div>
 </template>
 
