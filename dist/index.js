@@ -31,14 +31,54 @@ class Book {
     pages;
     cover;
 }
-let books = [
+const books = [
     {
-        title: 'The Pragmatic Programmer',
-        author: 'Andrew Hunt, David Thomas',
-        review: 'A classic on software craftsmanship.',
+        title: 'Journey to the Center of the Earth',
+        author: 'Jules Verne',
+        review: 'A thrilling adventure through underground worlds.',
         read: true,
-        pages: 352,
-        cover: 'https://imgs.search.brave.com/OQoU3s-SJ-YCL-arpmXzcBnwJpDPQcxm2Sv54wXcTBs/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/ZWFzb25zLmNvbS9p/bWFnZXMvbS80ODhh/NDllODNmMjU0N2Fi/L29yaWdpbmFsLzk3/ODAxMzU5NTcwNTlf/NTYzODkzMTMyMy5q/cGc_d2lkdGg9MjUx/JmhlaWdodD0zODkm/bW9kZT1tYXg',
+        pages: 320,
+        cover: '../resources/A_Journey_to_the_Centre_of_the_Earth-1874.jpg',
+    },
+    {
+        title: 'Twenty Thousand Leagues Under the Sea',
+        author: 'Jules Verne',
+        review: 'Epic underwater exploration and science fiction.',
+        read: false,
+        pages: 426,
+        cover: '../resources/TwentyThousandLeaguesUndertheSea.jpg',
+    },
+    {
+        title: 'Around the World in 80 Days',
+        author: 'Jules Verne',
+        review: 'A fast-paced, globe-trotting adventure.',
+        read: true,
+        pages: 256,
+        cover: '../resources/Aroundtheworldin80Days.jpg',
+    },
+    {
+        title: 'Flatland: A Romance of Many Dimensions',
+        author: 'Edwin A. Abbott',
+        review: 'A mathematical novella exploring dimensions and society.',
+        read: true,
+        pages: 96,
+        cover: '../resources/Flatland.jpg',
+    },
+    {
+        title: 'Gödel, Escher, Bach: An Eternal Golden Braid',
+        author: 'Douglas Hofstadter',
+        review: 'A deep dive into mathematics, art, and self-reference.',
+        read: false,
+        pages: 777,
+        cover: '../resources/Godel,_Escher,_Bach_(first_edition).jpg',
+    },
+    {
+        title: 'The Man Who Counted',
+        author: 'Malba Tahan',
+        review: 'Mathematical puzzles and stories from Middle Eastern folklore.',
+        read: true,
+        pages: 300,
+        cover: 'https://upload.wikimedia.org/wikipedia/en/e/e1/The_Man_Who_Counted.jpg',
     },
 ];
 function updateBooks() {
