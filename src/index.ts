@@ -47,7 +47,7 @@ const books = [
         review: 'A thrilling adventure through underground worlds.',
         read: true,
         pages: 320,
-        cover: '../resources/A_Journey_to_the_Centre_of_the_Earth-1874.jpg',
+        cover: './resources/A_Journey_to_the_Centre_of_the_Earth-1874.jpg',
     },
     {
         title: 'Twenty Thousand Leagues Under the Sea',
@@ -55,7 +55,7 @@ const books = [
         review: 'Epic underwater exploration and science fiction.',
         read: false,
         pages: 426,
-        cover: '../resources/TwentyThousandLeaguesUndertheSea.jpg',
+        cover: './resources/TwentyThousandLeaguesUndertheSea.jpg',
     },
     {
         title: 'Around the World in 80 Days',
@@ -63,7 +63,7 @@ const books = [
         review: 'A fast-paced, globe-trotting adventure.',
         read: true,
         pages: 256,
-        cover: '../resources/Aroundtheworldin80Days.jpg',
+        cover: './resources/Aroundtheworldin80Days.jpg',
     },
     {
         title: 'Flatland: A Romance of Many Dimensions',
@@ -71,7 +71,7 @@ const books = [
         review: 'A mathematical novella exploring dimensions and society.',
         read: true,
         pages: 96,
-        cover: '../resources/Flatland.jpg',
+        cover: './resources/Flatland.jpg',
     },
     {
         title: 'Gödel, Escher, Bach: An Eternal Golden Braid',
@@ -79,7 +79,7 @@ const books = [
         review: 'A deep dive into mathematics, art, and self-reference.',
         read: false,
         pages: 777,
-        cover: '../resources/Godel,_Escher,_Bach_(first_edition).jpg',
+        cover: './resources/Godel,_Escher,_Bach_(first_edition).jpg',
     },
     {
         title: 'The Man Who Counted',
